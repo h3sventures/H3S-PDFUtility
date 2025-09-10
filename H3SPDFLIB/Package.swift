@@ -16,8 +16,8 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .binaryTarget(
             name: "H3SPDFUTIL",
-            url: "https://github.com/h3sventures/H3S-PDFUtility/releases/download/v1.0.0/H3SPDFUTIL.xcframework.zip",
-            checksum: "30bf852875a718caee3ea8dd9e13c0f94a6089f0e8db4711376f5b4bd6cd53a9"
+            url: "https://github.com/h3sventures/H3S-PDFUtility/releases/download/v1.0.1/H3SPDFUTIL.xcframework.zip",
+            checksum: "2ad53f843869b66157e0c1e6b5c4016e831385127e0d92aaf37ee450d3b61cb6"
         ),
     ]
 )
