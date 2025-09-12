@@ -13,41 +13,17 @@ It supports **digital PKCS#12 signatures**, **wet signatures**, and **signature 
 - Built-in **logging** via `LogLevel`.  
 ---
 ## Workflow Diagram
-+----------------+
-| PDF Input |
-+----------------+
-|
-v
-+----------------+
-| Add Placeholder|
-| (optional info)|
-+----------------+
-|
-v
-+----------------+
-| Digital Signing|
-| (PKCS# Data) |
-+----------------+
-|
-v
-+----------------+
-| Add Wet Image |
-| (optional) |
-+----------------+
-|
-v
-+----------------+
-| updatedPDF |
-| (latest PDF) |
-+----------------+
-
 ```mermaid
 flowchart TD
     A[PDF Input] --> B[Add Placeholder]
-    B --> C[Add Wet Image]
-    C --> D[Digital Signing]
+    B --> D[Digital Signing]
     D --> E[updatedPDF]
+
+    %% Wet Signature bypassing B and D
+    A --> C[Add Wet Signature or Image (bypass placeholder & digital signing)]
+    C --> E
 ```
+
 > This diagram shows the typical flow: the PDF data enters the SDK, create placeholders (with optional info) and digitally signed, and results in `updatedPDF`. Optionally, even you can add Wet signature and results in `updatedPDF`.
 ---
 ## Quick Start
