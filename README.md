@@ -40,6 +40,14 @@ v
 | updatedPDF |
 | (latest PDF) |
 +----------------+
+
+```mermaid
+flowchart TD
+    A[PDF Input] --> B[Add Placeholder]
+    B --> C[Add Wet Image]
+    C --> D[Digital Signing]
+    D --> E[updatedPDF]
+```
 > This diagram shows the typical flow: the PDF data enters the SDK, create placeholders (with optional info) and digitally signed, and results in `updatedPDF`. Optionally, even you can add Wet signature and results in `updatedPDF`.
 ---
 ## Quick Start
