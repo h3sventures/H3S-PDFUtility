@@ -15,9 +15,13 @@ It supports **digital PKCS#12 signatures**, **wet signatures**, and **signature 
 
 ---
 
-## Installation
+## Quick Start
 
-### Swift Package Manager
+This guide walks you through **installation, licensing, and your first signature**.
+
+### Installation
+
+#### Swift Package Manager
 Add this to your `Package.swift`:
 
 ```swift
@@ -28,15 +32,8 @@ Add this to your `Package.swift`:
     dependencies: ["H3SPDFUTILSDK"]
 )
 ```
----
 
-## Getting Started with H3SPDFUTILSDK
-
-This guide walks you through **installation, licensing, and your first signature**.
-
----
-
-### Initialize SDK
+#### Initialize SDK
 
 ```swift
 import H3SPDFUTILSDK
@@ -49,12 +46,12 @@ let pdfSDK = H3SPDFUTILSDK(
     licenseKey: licenseKey,
     logLevel: .info
 )
+```
 
----
 `updatedPDF` will initially hold the input PDF data.
 
-## Digital Signature
-### Add Signature Placeholder
+### Digital Signature
+#### 1. Add Signature Placeholder
 
 ```swift
 Task {
@@ -73,16 +70,17 @@ Task {
         print("Failed to add placeholder: \(error)")
     }
 }
+```
 
----
+**Parameters**:
+- `additionalInfo`: Optional array of `PDFSignatureInfo`
+- `placeholderLength`: Optional placeholder size (default: 16384)
+- `position`: Optional `SignaturePosition` (default: `.bottomLeft`)
+- `onPage`: Optional `SignaturePage` (default: `.lastPage`)
 
-#### Parameters:
-- additionalInfo: Optional array of PDFSignatureInfo
-- placeholderLength: Optional placeholder size (default: 16384)
-- position: Optional SignaturePosition (default: .bottomLeft)
-- onPage: Optional SignaturePage (default: .lastPage)
+Returns the **computed hash** data stream.
 
-### Sign Document
+#### 2. Sign Document
 
 ```swift
 Task {
@@ -94,12 +92,15 @@ Task {
         print("Failed to sign document: \(error)")
     }
 }
+```
+**Parameter**: 
+- `signatureData`: signature data stream
 
----
+Returns the **signed PDF** data stream.
 
-## Wet/Image Signature
+### Wet/Image Signature
 
-### Add Wet Signature or Image
+#### 1. Add Wet Signature or Image
 
 ```swift
 Task {
@@ -114,21 +115,112 @@ Task {
         print("Failed to add wet signature: \(error)")
     }
 }
+```
+**Parameters**:
+- `imageBase64`: Base64-encoded image
+- `position`: Optional `SignaturePosition` (default: `.bottomLeft`)
+- `onPage`: Optional `SignaturePage` (default: `.lastPage`)
 
----
+### Additional options
 
-## Additional options
-
-### Access Updated PDF
+#### Access Updated PDF
 ```swift
 let latestPDF = pdfSDK.updatedPDF
+```
 
----
+#### Logging
 
-### Logging
+Set the `logLevel` during initialization:
+
 ```swift
 enum LogLevel {
     case none, error, warning, info, debug
 }
+```
+
+- `none`: No logs
+- `error`: only errors
+- `warning`: error and warnings
+- `info`: Basic operation logs
+- `debug`: Detailed logs for development
 
 ---
+
+## API Reference
+
+**Class**: `H3SPDFUTILSDK`
+
+**Properties**
+`updatedPDF: Data`
+Holds the **latest PDF** after any operation (read-only).
+
+**Initializer**
+
+```swift
+public init(data: Data, licenseKey: String, logLevel: LogLevel = .none)
+```
+
+- `data`: PDF as Data
+- `licenseKey`: Your SDK license key string
+- `logLevel`: Optional log verbosity
+
+**Methods**
+1. `addSignaturePlaceholder`
+
+```swift
+@MainActor
+public func addSignaturePlaceholder(
+    additionalInfo: [PDFSignatureInfo] = [],
+    placeholderLength: Int = 8192 * 2,
+    position: SignaturePosition = .bottomLeft,
+    onPage: SignaturePage = .lastPage
+) async throws -> Data?
+```
+
+- Adds a **signature placeholder**
+- Returns optional **hash data**
+- Throws error on failure
+
+2. `addWetSignatureOrImage`
+
+```swift
+@MainActor
+public func addWetSignatureOrImage(
+    imageBase64: String,
+    position: SignaturePosition = .bottomLeft,
+    onPage: SignaturePage = .lastPage
+) async throws
+```
+
+- Adds a **wet signature or image** at specified page/position
+- Updates `updatedPDF`
+- Throws error on failure
+
+3. `signDocument`
+
+```swift
+@MainActor
+public func signDocument(signatureData: Data) async throws -> Data?
+```
+
+- Signs the PDF with **PKCS# signature data**
+- Returns the **signed PDF data stream**
+- Throws error on failure
+
+---
+
+### Notes
+- Always read from `updatedPDF` after any operation
+- Handle errors using `do/catch`
+- Use async/await to avoid blocking the main thread
+- Ensure your **license key** is valid and matches your app’s Bundle ID
+
+---
+
+### License
+YourSDK requires a valid license key. Licenses are tied to **Bundle ID** and define enabled features.
+
+---
+
+### Support
+- Email: `h3sventures@gmail.com`
