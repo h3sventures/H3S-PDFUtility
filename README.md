@@ -20,7 +20,7 @@ flowchart TD
     D --> E[updatedPDF]
 
     %% Wet Signature bypassing B and D
-    A --> C[Add Wet Signature or Image (bypass placeholder & digital signing)]
+    A --> C[Add Wet Signature or Image]
     C --> E
 ```
 
