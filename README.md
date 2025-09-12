@@ -3,6 +3,7 @@
 `H3SPDFUTILSDK` is a **lightweight iOS SDK** for PDF signing.  
 It supports **digital PKCS#12 signatures**, **wet signatures**, and **signature placeholders** while providing **offline license enforcement**.
 ---
+
 ## Features
 - Add **signature placeholders** with metadata.  
 - Add **wet signatures** (image-based).  
