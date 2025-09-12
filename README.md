@@ -27,7 +27,7 @@ Add this to your `Package.swift`:
     name: "YourApp",
     dependencies: ["H3SPDFUTILSDK"]
 )
-
+```
 ---
 
 ## Getting Started with H3SPDFUTILSDK
