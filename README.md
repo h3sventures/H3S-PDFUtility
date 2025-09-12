@@ -28,18 +28,15 @@ Add this to your `Package.swift`:
     dependencies: ["H3SPDFUTILSDK"]
 )
 
-
 ---
 
-### ** GETTING STARTED**
-```markdown
-# Getting Started with H3SPDFUTILSDK
+## Getting Started with H3SPDFUTILSDK
 
 This guide walks you through **installation, licensing, and your first signature**.
 
 ---
 
-## 1. Initialize SDK
+### Initialize SDK
 
 ```swift
 import H3SPDFUTILSDK
@@ -53,8 +50,11 @@ let pdfSDK = H3SPDFUTILSDK(
     logLevel: .info
 )
 
-### Digital Signature
-## 2. Add Signature Placeholder
+---
+`updatedPDF` will initially hold the input PDF data.
+
+## Digital Signature
+### Add Signature Placeholder
 
 ```swift
 Task {
@@ -76,7 +76,13 @@ Task {
 
 ---
 
-## 3. Sign Document
+#### Parameters:
+- additionalInfo: Optional array of PDFSignatureInfo
+- placeholderLength: Optional placeholder size (default: 16384)
+- position: Optional SignaturePosition (default: .bottomLeft)
+- onPage: Optional SignaturePage (default: .lastPage)
+
+### Sign Document
 
 ```swift
 Task {
@@ -91,9 +97,9 @@ Task {
 
 ---
 
-### Wet/Image Signature
+## Wet/Image Signature
 
-## 2. Add Wet Signature or Image
+### Add Wet Signature or Image
 
 ```swift
 Task {
@@ -111,15 +117,15 @@ Task {
 
 ---
 
-### Additional options
+## Additional options
 
-## Access Updated PDF
+### Access Updated PDF
 ```swift
 let latestPDF = pdfSDK.updatedPDF
 
 ---
 
-## Logging
+### Logging
 ```swift
 enum LogLevel {
     case none, error, warning, info, debug
