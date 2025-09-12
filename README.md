@@ -201,6 +201,11 @@ public func signDocument(signatureData: Data) async throws -> Data?
 ### License
 YourSDK requires a valid license key. Licenses are tied to **Bundle ID** and define enabled features.
 
+#### Trial License key (For Beta testing)
+```
+eyJ1c3IiOiJIM1MgVmVudHVyZXMgKFRyaWFsKSIsImV4cCI6MTc2NDQ3ODgwMCwiYXVkIjpudWxsLCJkZW1vIjp0cnVlLCJmZWF0IjpbImRyYWciLCJkaWdpdGFsIiwid2V0IiwibXVsdGkiLCJoYXNoIl19.B5YX3bV6KV9kV9EmEYmuZRjhax4Y6unINiV3z8+Zvrg1nOPSQ9d3rrG/+PmYVMB48FNT/hQRt7Jw5nkFhVOWQ8U8Mags94Ln2Zf9HRRNKx5e5H+5+x2sx/tq33EwXkXgkwyV/2AM5JBRF/YFr+QFlBW0EgF/Bzw296qwX5cuG+R7cDRhSZcEKdWQNKfSjCj4ynGfC7xpG97ESxvG4e9vBqVuw7/ItYYGow4nX5s6mHB9prfip50XRapbjL8WFHi/PlSR9xnNdjcsrat4CWhLxwBAS+y5s8FW/RIxAYCx5Gn+ZhYWxVwWa+DegUDD/TMovFil+8XU/VGqfpnBgpjXfg==
+```
+
 ---
 ### Support
 - Email: `h3sventures@gmail.com`
