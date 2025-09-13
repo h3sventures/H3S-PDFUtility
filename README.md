@@ -210,3 +210,4 @@ eyJ1c3IiOiJIM1MgVmVudHVyZXMgKFRyaWFsKSIsImV4cCI6MTc2NDQ3ODgwMCwiYXVkIjpudWxsLCJk
 ---
 ### Support
 - Email: `h3sventures@gmail.com`
+- Feedback: Will love to hear from you! Please **submit your feedback** or **report issue** at https://forms.gle/uUf6T8BShyBygC479
