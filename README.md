@@ -64,7 +64,7 @@ Task {
         let hashData = try await pdfSDK.addSignaturePlaceholder(
             additionalInfo: [
                 PDFSignatureInfo(type: .name, value: "John Doe"),
-                PDFSignatureInfo(contactInfo: "john@example.com"),
+                PDFSignatureInfo(type: .contactInfo, value: "john@example.com"),
                 PDFSignatureInfo(type: .imageJpegBase64, value: "base64 string for image")
             ],
             placeholderLength: 16384,
