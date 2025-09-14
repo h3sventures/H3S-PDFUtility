@@ -1,6 +1,6 @@
 # H3S PDF Utility SDK
 
-`H3SPDFUTILSDK` is a **lightweight iOS SDK** for PDF signing.  
+`H3SPDFUTIL` SDK is a **lightweight iOS SDK** for PDF signing.  
 It supports **digital PKCS#12 signatures**, **wet signatures**, and **signature placeholders** while providing **offline license enforcement**.
 
 ---
@@ -43,7 +43,7 @@ Add this to your `Package.swift`:
 ```
 #### Initialize SDK
 ```swift
-import H3SPDFUTILSDK
+import H3SPDFUTIL
 
 let pdfData: Data = ... // Your PDF data
 let licenseKey = "YOUR_LICENSE_KEY"
@@ -143,7 +143,7 @@ enum LogLevel {
 ---
 ## API Reference
 
-**Class**: `H3SPDFUTILSDK`
+**Class**: `H3SPDFUTIL`
 **Properties**
 `updatedPDF: Data`
 Holds the **latest PDF** after any operation (read-only).
